@@ -34,7 +34,7 @@ include device/google/caimito/device-caimito-common.mk
 
 include device/google/zumapro/BoardConfig-common.mk
 include device/google/gs-common/check_current_prebuilt/check_current_prebuilt.mk
-include device/google/caimito-sepolicy/tokay-sepolicy.mk
+include device/google/caimito/sepolicy/tokay-sepolicy.mk
 include device/google/caimito/wifi/BoardConfig-wifi.mk
 
 DEVICE_PATH := device/google/caimito
