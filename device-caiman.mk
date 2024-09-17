@@ -55,6 +55,7 @@ endif
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/caimito/caiman/overlay
 
+RELEASE_PIXEL_AIDL_AUDIO_HAL := true
 ifeq ($(RELEASE_PIXEL_AIDL_AUDIO_HAL),true)
 USE_AUDIO_HAL_AIDL := true
 endif
