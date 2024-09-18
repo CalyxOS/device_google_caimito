@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d964d940_a16712a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-09-18T00:51:10Z",
+      "side": 1,
+      "message": "Copied from shusky, needs to be adapted",
+      "revId": "0a35c09bab2652c0d5f03c9326e00e27d399c66e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
