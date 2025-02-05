@@ -22,8 +22,8 @@ PRODUCT_MODEL := Pixel 9 Pro
 PRODUCT_NAME := calyx_$(DEVICE_CODENAME)
 
 PRODUCT_BUILD_PROP_OVERRIDES := \
-    BuildDesc="caiman-user 15 AP4A.250105.002 12701944 release-keys" \
-    BuildFingerprint=google/caiman/caiman:15/AP4A.250105.002/12701944:user/release-keys \
+    BuildDesc="caiman-user 15 AP4A.250205.002 12821496 release-keys" \
+    BuildFingerprint=google/caiman/caiman:15/AP4A.250205.002/12821496:user/release-keys \
     DeviceProduct=$(DEVICE_CODENAME)
 
 PRODUCT_RESTRICT_VENDOR_FILES := false
