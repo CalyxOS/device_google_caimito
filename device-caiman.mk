@@ -26,9 +26,19 @@ RELEASE_GOOGLE_BOOTLOADER_CAIMAN_DIR ?= 24D1# Keep this for pdk TODO: b/32711900
 RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/$(RELEASE_GOOGLE_BOOTLOADER_CAIMAN_DIR)
 $(call soong_config_set,caimito_bootloader,prebuilt_dir,$(RELEASE_GOOGLE_BOOTLOADER_CAIMAN_DIR))
 
+ifdef RELEASE_KERNEL_CAIMAN_VERSION
+TARGET_LINUX_KERNEL_VERSION := $(RELEASE_KERNEL_CAIMAN_VERSION)
+else
+TARGET_LINUX_KERNEL_VERSION ?= 6.1
+endif
+
 ifdef RELEASE_KERNEL_CAIMAN_DIR
 TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_CAIMAN_DIR)
 TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_KERNEL_CAIMAN_DIR)/kernel-headers
+
+ifneq ($(TARGET_BOOTS_16K),true)
+PRODUCT_16K_DEVELOPER_OPTION := $(RELEASE_GOOGLE_CAIMAN_16K_DEVELOPER_OPTION)
+endif
 
 include device/google/caimito/device-caimito-16k-common.mk
 
@@ -66,7 +76,6 @@ endif
 
 include device/google/caimito/audio/caiman/audio-tables.mk
 include device/google/zumapro/device-shipping-common.mk
-include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti.mk
 include device/google/caimito/fingerprint/ultrasonic_udfps.mk
@@ -185,10 +194,6 @@ PRODUCT_PACKAGES += \
 # declare use of spatial audio
 PRODUCT_PROPERTY_OVERRIDES += \
        ro.audio.spatializer_enabled=true
-
-# declare use of stereo spatialization
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.audio.stereo_spatialization_enabled=true
 
 ifneq ($(USE_AUDIO_HAL_AIDL),true)
 # HIDL Sound Dose
@@ -349,8 +354,8 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.exif_reveal_make_model=true
 
-# Media Performance Class 14
-PRODUCT_PRODUCT_PROPERTIES += ro.odm.build.media_performance_class=34
+# Media Performance Class 15
+PRODUCT_PRODUCT_PROPERTIES += ro.odm.build.media_performance_class=35
 
 # Display RRS default Config
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.vendor.display.primary.boot_config=960x2142@120:120
@@ -408,11 +413,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
 
-ifeq ($(RELEASE_PIXEL_BROADCAST_ENABLED), true)
+# Bluetooth LE Audio Broadcast
 PRODUCT_PRODUCT_PROPERTIES += \
 	bluetooth.profile.bap.broadcast.assist.enabled=true \
 	bluetooth.profile.bap.broadcast.source.enabled=true
-endif
 
 # LE Audio switcher in developer options
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -441,7 +445,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # LE Audio Unicast Allowlist
 PRODUCT_PRODUCT_PROPERTIES += \
-   persist.bluetooth.leaudio.allow_list=SM-R510,WF-1000XM5
+   persist.bluetooth.leaudio.allow_list=SM-R510,WF-1000XM5,SM-R630
 
 # Support LE & Classic concurrent encryption (b/330704060)
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -455,6 +459,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Exynos RIL and telephony
 # Support RIL Domain-selection
 SUPPORT_RIL_DOMAIN_SELECTION := true
+
+SUPPORT_VENDOR_SATELLITE_SERVICE := true
+
+# Support NTN(satellite) with dual SIM
+NTN_DUAL_SIM := true
 
 # ETM
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -491,3 +500,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/google/caimito/bluetooth/audio_set_configurations.json:$(TARGET_COPY_OUT_VENDOR)/etc/aidl/le_audio/aidl_audio_set_configurations.json
+
+# Enable APF by default
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.powerhal.apf_disabled=false \
+    vendor.powerhal.apf_enabled=true
