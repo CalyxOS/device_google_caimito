@@ -27,6 +27,3 @@ PRODUCT_DEVICE := tokay
 PRODUCT_MODEL := AOSP on tokay
 PRODUCT_BRAND := Android
 PRODUCT_MANUFACTURER := Google
-
-DEVICE_MANIFEST_FILE := \
-	device/google/caimito/manifest.xml

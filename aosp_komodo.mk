@@ -27,6 +27,3 @@ PRODUCT_DEVICE := komodo
 PRODUCT_MODEL := AOSP on komodo
 PRODUCT_BRAND := Android
 PRODUCT_MANUFACTURER := Google
-
-DEVICE_MANIFEST_FILE := \
-	device/google/caimito/manifest.xml

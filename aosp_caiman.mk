@@ -27,6 +27,3 @@ PRODUCT_DEVICE := caiman
 PRODUCT_MODEL := AOSP on caiman
 PRODUCT_BRAND := Android
 PRODUCT_MANUFACTURER := Google
-
-DEVICE_MANIFEST_FILE := \
-	device/google/caimito/manifest.xml

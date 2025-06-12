@@ -16,7 +16,13 @@
 
 TARGET_BOARD_INFO_FILE := device/google/caimito/board-info.txt
 TARGET_BOOTLOADER_BOARD_NAME := caiman
-TARGET_SCREEN_DENSITY := 480
+
+ifdef PHONE_CAR_BOARD_PRODUCT
+    include vendor/auto/embedded/products/$(PHONE_CAR_BOARD_PRODUCT)/BoardConfig.mk
+else
+    TARGET_SCREEN_DENSITY := 480
+endif
+
 BOARD_USES_GENERIC_AUDIO := true
 USES_DEVICE_GOOGLE_CAIMITO := true
 
