@@ -197,21 +197,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.audio.cca.enabled=false
 
-# Bluetooth hci_inject test tool
-PRODUCT_PACKAGES_DEBUG += \
-    hci_inject
-
 # Bluetooth OPUS codec
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.opus.enabled=true
-
-# Bluetooth SAR test tool
-PRODUCT_PACKAGES_DEBUG += \
-    sar_test
-
-# Bluetooth EWP test tool
-PRODUCT_PACKAGES_DEBUG += \
-    ewp_tool
 
 # Bluetooth AAC VBR
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -222,19 +210,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.hfp.swb.supported=true
 
 # Override BQR mask to enable LE Audio Choppy report, remove BTRT logging
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.bqr.event_mask=295006 \
-    persist.bluetooth.bqr.vnd_quality_mask=29 \
-    persist.bluetooth.bqr.vnd_trace_mask=0 \
-    persist.bluetooth.vendor.btsnoop=true
-else
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.bqr.event_mask=295006 \
     persist.bluetooth.bqr.vnd_quality_mask=16 \
     persist.bluetooth.bqr.vnd_trace_mask=0 \
     persist.bluetooth.vendor.btsnoop=false
-endif
 
 # default BDADDR for EVB only
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -423,11 +403,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Window Extensions
 $(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
-
-# ETM
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-$(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
-endif
 
 # Connectivity Resources Overlay for Thread host settings
 PRODUCT_PACKAGES += \

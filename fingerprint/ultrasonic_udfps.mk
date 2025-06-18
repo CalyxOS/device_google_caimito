@@ -30,13 +30,3 @@ $(call soong_config_set,fp_hal_feature,biometric_suez_support,true)
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.qfp.enable_setprop=0 \
 	log.tag.QFP=3
-
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-$(call soong_config_set,fp_hal_feature,fingerprint_debug_support,$(RELEASE_PIXEL_AIDL_FINGERPRINT_DEBUG_HAL))
-
-PRODUCT_SOONG_NAMESPACES += \
-	vendor/qcom/fingerprint/QFPCalibration
-
-PRODUCT_PACKAGES += \
-        QFPCalibration
-endif

@@ -30,10 +30,6 @@ PRODUCT_COPY_FILES += \
 	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/thermal_info_config_lpm_$(TARGET_DEVICE).json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_lpm.json \
 	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/vt_estimation_model_$(TARGET_DEVICE).tflite:$(TARGET_COPY_OUT_VENDOR)/etc/vt_estimation_model.tflite \
 	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/vt_prediction_lstm_model_$(TARGET_DEVICE).tflite:$(TARGET_COPY_OUT_VENDOR)/etc/vt_prediction_lstm_model.tflite
-        ifneq (,$(filter $(TARGET_BUILD_VARIANT), userdebug eng))
-            PRODUCT_COPY_FILES += \
-            $(TARGET_VENDOR_THERMAL_CONFIG_PATH)/thermal_info_config_$(TARGET_DEVICE)_wingboard.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_wingboard.json
-        endif
 endif
 
 # Power HAL config
