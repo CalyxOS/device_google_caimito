@@ -50,9 +50,7 @@ LOCAL_PATH := device/google/caimito
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
     USE_UWBFIELDTESTQM := true
 endif
-ifeq ($(filter factory_komodo, $(TARGET_PRODUCT)),)
-    include device/google/caimito/komodo/uwb/uwb_calibration.mk
-endif
+include device/google/caimito/komodo/uwb/uwb_calibration.mk
 
 $(call inherit-product-if-exists, vendor/google_devices/caimito/prebuilts/device-vendor-komodo.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
@@ -60,10 +58,6 @@ $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/devi
 $(call inherit-product-if-exists, vendor/google_devices/komodo/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/caimito/proprietary/komodo/device-vendor-komodo.mk)
 $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
-
-ifeq ($(filter factory_komodo, $(TARGET_PRODUCT)),)
-    $(call inherit-product-if-exists, vendor/google_devices/caimito/proprietary/WallpapersKomodo.mk)
-endif
 
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/caimito/komodo/overlay
@@ -118,13 +112,10 @@ $(call soong_config_set,google3a_config,target_device,komodo)
 # Display RRS default Config
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.vendor.display.primary.boot_config=1008x2244@120:120
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.preferred_mode=1008x2244@120:120
-
-ifeq ($(filter factory_komodo, $(TARGET_PRODUCT)),)
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.xrr.version=2.1
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.blocking_zone.min_refresh_rate_by_nits=5:120,:1
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.headsup_ns=30000000
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.timeout_ns=500000000
-endif
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.xrr.version=2.1
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.blocking_zone.min_refresh_rate_by_nits=5:120,:1
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.headsup_ns=30000000
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.timeout_ns=500000000
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.ignore_hdr_camera_layers=true
 

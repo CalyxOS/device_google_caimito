@@ -51,10 +51,6 @@ $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/devi
 $(call inherit-product-if-exists, vendor/google_devices/tokay/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/caimito/proprietary/tokay/device-vendor-tokay.mk)
 
-ifeq ($(filter factory_tokay, $(TARGET_PRODUCT)),)
-    $(call inherit-product-if-exists, vendor/google_devices/caimito/proprietary/WallpapersTokay.mk)
-endif
-
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/caimito/tokay/overlay
 

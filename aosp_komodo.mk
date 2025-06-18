@@ -20,7 +20,7 @@ USE_SWIFTSHADER := false
 BOARD_USES_SWIFTSHADER := false
 
 $(call inherit-product, device/google/zumapro/aosp_common.mk)
-$(call inherit-product, device/google/caimito/komodo_generic.mk)
+$(call inherit-product, device/google/caimito/device-komodo.mk)
 
 PRODUCT_NAME := aosp_komodo
 PRODUCT_DEVICE := komodo
