@@ -367,6 +367,10 @@
     <ctl name="Sidetone Enable" value="1" />
   </path>
 
+  <!-- audio DSP_PLAYBACK default state -->
+  <ctl name="AoC Chirp Enable" value="0" />
+  <ctl name="Noise Gate Delay" value="50ms" />
+
   <!-- audio playback dynamic route -->
   <path name="primary-playback -> speaker">
     <ctl name="TDM_0_RX Mixer EP2" value="1" />
@@ -1347,10 +1351,15 @@
     <ctl name="R Fast Use Case Switch Enable" value="1" /-->
   </path>
 
-  <path name="speaker (ALWAYS_AVAILABLE_DISPLAY)">
-    <ctl name="R Main AMP Enable Switch" value="1" />
-    <ctl name="R Boost Peak Current Limit" value="1.80A" />
-    <ctl name="R Digital PCM Volume" value="817" />
+  <path name="speaker (DSP_PLAYBACK)">
+    <ctl name="AoC Chirp Enable" value="1" />
+    <ctl name="Boost Peak Current Limit" value="1.80A" />
+    <ctl name="DSP RX1 Source" value="Zero" />
+    <ctl name="DSP RX2 Source" value="Zero" />
+    <ctl name="Digital PCM Volume" value="750" />
+    <ctl name="Main AMP Enable Switch" value="1" />
+    <ctl name="Noise Gate Delay" value="5ms" />
+    <ctl name="PCM Source" value="ASP" />
   </path>
 
   <path name="speaker-safe">
