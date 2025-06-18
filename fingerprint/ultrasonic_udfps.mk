@@ -40,7 +40,3 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
         QFPCalibration
 endif
-
-ifneq (,$(findstring factory, $(TARGET_PRODUCT)))
-PRODUCT_PACKAGES += QfsFactoryTest
-endif

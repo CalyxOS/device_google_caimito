@@ -50,9 +50,7 @@ LOCAL_PATH := device/google/caimito
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
     USE_UWBFIELDTESTQM := true
 endif
-ifeq ($(filter factory_caiman, $(TARGET_PRODUCT)),)
-    include device/google/caimito/caiman/uwb/uwb_calibration.mk
-endif
+include device/google/caimito/caiman/uwb/uwb_calibration.mk
 
 $(call inherit-product-if-exists, vendor/google_devices/caimito/prebuilts/device-vendor-caiman.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
@@ -60,10 +58,6 @@ $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/devi
 $(call inherit-product-if-exists, vendor/google_devices/caiman/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/caimito/proprietary/caiman/device-vendor-caiman.mk)
 $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
-
-ifeq ($(filter factory_caiman, $(TARGET_PRODUCT)),)
-    $(call inherit-product-if-exists, vendor/google_devices/caimito/proprietary/WallpapersCaiman.mk)
-endif
 
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/caimito/caiman/overlay
@@ -356,13 +350,10 @@ PRODUCT_PRODUCT_PROPERTIES += ro.odm.build.media_performance_class=35
 # Display RRS default Config
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.vendor.display.primary.boot_config=960x2142@120:120
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.preferred_mode=960x2142@120:120
-
-ifeq ($(filter factory_caiman, $(TARGET_PRODUCT)),)
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.xrr.version=2.1
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.blocking_zone.min_refresh_rate_by_nits=5:120,:1
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.headsup_ns=30000000
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.timeout_ns=500000000
-endif
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.xrr.version=2.1
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.blocking_zone.min_refresh_rate_by_nits=5:120,:1
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.headsup_ns=30000000
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.vendor.primarydisplay.vrr.expected_present.timeout_ns=500000000
 
 # Display OP HZ Config
 PRODUCT_VENDOR_PROPERTIES += \
