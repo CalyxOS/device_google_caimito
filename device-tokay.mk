@@ -45,12 +45,6 @@ TARGET_KERNEL_DIR ?= device/google/caimito-kernels/6.1/24D1
 TARGET_BOARD_KERNEL_HEADERS ?= device/google/caimito-kernels/6.1/24D1/kernel-headers
 endif
 
-$(call inherit-product-if-exists, vendor/google_devices/caimito/prebuilts/device-vendor-tokay.mk)
-$(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/tokay/proprietary/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/caimito/proprietary/tokay/device-vendor-tokay.mk)
-
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/caimito/tokay/overlay
 
@@ -266,9 +260,6 @@ PRODUCT_PACKAGES += \
 # Settings Overlay
 PRODUCT_PACKAGES += \
     SettingsTokayOverlay
-
-# Trusty liboemcrypto.so
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/caimito/prebuilts
 
 # Location
 PRODUCT_SOONG_NAMESPACES += device/google/caimito/location/tokay

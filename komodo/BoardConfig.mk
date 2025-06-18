@@ -27,9 +27,7 @@ RELEASE_GOOGLE_PRODUCT_NTNRADIO_DIR := $(RELEASE_GOOGLE_KOMODO_NTNRADIO_DIR)
 include device/google/caimito/device-caimito-common.mk
 
 include device/google/zumapro/BoardConfig-common.mk
--include vendor/google_devices/zumapro/prebuilts/BoardConfigVendor.mk
 include device/google/gs-common/check_current_prebuilt/check_current_prebuilt.mk
--include vendor/google_devices/komodo/proprietary/BoardConfigVendor.mk
 include device/google/caimito-sepolicy/komodo-sepolicy.mk
 include device/google/caimito/wifi/BoardConfig-wifi.mk
 

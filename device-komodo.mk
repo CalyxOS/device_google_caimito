@@ -49,13 +49,6 @@ LOCAL_PATH := device/google/caimito
 
 include device/google/caimito/komodo/uwb/uwb_calibration.mk
 
-$(call inherit-product-if-exists, vendor/google_devices/caimito/prebuilts/device-vendor-komodo.mk)
-$(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/komodo/proprietary/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/caimito/proprietary/komodo/device-vendor-komodo.mk)
-$(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
-
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/caimito/komodo/overlay
 
@@ -290,9 +283,6 @@ PRODUCT_PACKAGES += \
 # Settings Overlay
 PRODUCT_PACKAGES += \
     SettingsKomodoOverlay
-
-# Trusty liboemcrypto.so
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/caimito/prebuilts
 
 # UWB
 PRODUCT_SOONG_NAMESPACES += \
