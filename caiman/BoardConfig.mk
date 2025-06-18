@@ -39,10 +39,6 @@ include device/google/gs-common/check_current_prebuilt/check_current_prebuilt.mk
 include device/google/caimito-sepolicy/caiman-sepolicy.mk
 include device/google/caimito/wifi/BoardConfig-wifi.mk
 
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
--include device/google/common/etm/6_1/BoardUserdebugModules.mk
-endif
-
 DEVICE_PATH := device/google/caimito
 VENDOR_PATH := vendor/google/caiman
 include $(DEVICE_PATH)/$(TARGET_BOOTLOADER_BOARD_NAME)/BoardConfig-calyx.mk
