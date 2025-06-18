@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-PRODUCT_SOONG_NAMESPACES += \
-	vendor/qcom/fingerprint/qfp-service
-
 PRODUCT_PACKAGES += \
 	qfp-daemon
 
