@@ -52,9 +52,7 @@ include device/google/caimito/caiman/uwb/uwb_calibration.mk
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/caimito/caiman/overlay
 
-ifeq ($(RELEASE_PIXEL_AIDL_AUDIO_HAL),true)
 USE_AUDIO_HAL_AIDL := true
-endif
 
 include device/google/caimito/audio/caiman/audio-tables.mk
 include device/google/zumapro/device-shipping-common.mk
@@ -176,13 +174,6 @@ PRODUCT_PACKAGES += \
 # declare use of spatial audio
 PRODUCT_PROPERTY_OVERRIDES += \
        ro.audio.spatializer_enabled=true
-
-ifneq ($(USE_AUDIO_HAL_AIDL),true)
-# HIDL Sound Dose
-PRODUCT_PACKAGES += \
-	android.hardware.audio.sounddose-vendor-impl \
-	audio_sounddose_aoc
-endif
 
 # HdMic Audio
 PRODUCT_PROPERTY_OVERRIDES += \
