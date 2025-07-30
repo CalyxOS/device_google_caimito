@@ -36,7 +36,7 @@ TARGET_KERNEL_DIR := device/google/caimito-kernels/calyx
 TARGET_BOARD_KERNEL_HEADERS := $(TARGET_KERNEL_DIR)/kernel-headers
 
 ifneq ($(TARGET_BOOTS_16K),true)
-PRODUCT_16K_DEVELOPER_OPTION := $(RELEASE_GOOGLE_CAIMAN_16K_DEVELOPER_OPTION)
+PRODUCT_16K_DEVELOPER_OPTION := true
 endif
 
 LOCAL_PATH := device/google/caimito
