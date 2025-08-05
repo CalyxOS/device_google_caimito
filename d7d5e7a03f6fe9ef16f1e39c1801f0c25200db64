@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4508ebf_7afbb3cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2025-08-05T15:58:35Z",
+      "side": 1,
+      "message": "Unfortunate for 3rd party apps, but we don\u0027t have a better alternative for now",
+      "revId": "d7d5e7a03f6fe9ef16f1e39c1801f0c25200db64",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
