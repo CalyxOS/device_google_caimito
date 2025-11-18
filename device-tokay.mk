@@ -32,7 +32,7 @@ else
 TARGET_LINUX_KERNEL_VERSION ?= 6.1
 endif
 
-TARGET_KERNEL_DIR := device/google/caimito-kernels/calyx
+TARGET_KERNEL_DIR := device/google/caimito-kernels/$(TARGET_LINUX_KERNEL_VERSION)
 TARGET_BOARD_KERNEL_HEADERS := $(TARGET_KERNEL_DIR)/kernel-headers
 
 ifneq ($(TARGET_BOOTS_16K),true)
