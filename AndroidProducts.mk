@@ -7,6 +7,9 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_caiman.mk \
     $(LOCAL_DIR)/aosp_komodo.mk \
     $(LOCAL_DIR)/aosp_tokay.mk \
+    $(LOCAL_DIR)/calyx_caiman.mk \
+    $(LOCAL_DIR)/calyx_komodo.mk \
+    $(LOCAL_DIR)/calyx_tokay.mk \
     $(LOCAL_DIR)/lineage_caiman.mk \
     $(LOCAL_DIR)/lineage_komodo.mk \
     $(LOCAL_DIR)/lineage_tokay.mk
