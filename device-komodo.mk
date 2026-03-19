@@ -50,7 +50,6 @@ PRODUCT_PACKAGES += \
     TeleServiceOverlayVendorCaimito
 
 PRODUCT_PACKAGES += \
-    DMServiceOverlayVendorKomodo \
     FrameworkResOverlayVendorKomodo \
     PixelDisplayServiceOverlayProductKomodo \
     PixelNfcOverlayKomodo \
