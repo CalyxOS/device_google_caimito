@@ -47,7 +47,6 @@ PRODUCT_PACKAGES += \
     TelecomOverlayProductCaimito
 
 PRODUCT_PACKAGES += \
-    DMServiceOverlayVendorTokay \
     FrameworkResOverlayVendorTokay \
     PixelDisplayServiceOverlayProductTokay \
     PixelNfcOverlayTokay \
