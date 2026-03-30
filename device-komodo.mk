@@ -19,7 +19,7 @@ endif
 SHIPPING_API_LEVEL := 34
 
 # Inherit from zumapro
-include device/google/zumapro/device-shipping-common.mk
+include device/google/zumapro/common.mk
 
 # Display
 PRODUCT_COPY_FILES += \
@@ -67,7 +67,7 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/$(DEVICE_CODENAME)/vendor.prop
 
 # Recovery
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/recovery/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.caiman.rc
+    $(DEVICE_PATH)/recovery/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.komodo.rc
 
 PRODUCT_PACKAGES += \
     init.recovery.caimito.touch.rc
